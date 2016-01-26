@@ -1,0 +1,22 @@
+security:
+  user:
+    name: admin
+    password: admin
+  basic:
+    enabled: false
+
+management:
+  address: 127.0.0.1
+  context-path: /actuator
+
+spring:
+  output.ansi.enabled: ALWAYS
+  jpa.database-platform: org.hibernate.dialect.PostgreSQL9Dialect
+  datasource:
+    url: jdbc:postgresql://192.168.99.100/postgres
+    username: postgres
+    password: pass
+    testOnBorrow: true
+    validationQuery: SELECT 1
+
+docker.endpoint: http://192.168.99.100:2375
