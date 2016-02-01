@@ -5,10 +5,6 @@ security:
   basic:
     enabled: false
 
-management:
-  address: 127.0.0.1
-  context-path: /actuator
-
 spring:
   output.ansi.enabled: ALWAYS
   jpa.database-platform: org.hibernate.dialect.PostgreSQL9Dialect
