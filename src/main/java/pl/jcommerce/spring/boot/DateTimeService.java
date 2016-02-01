@@ -13,11 +13,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
+import lombok.extern.slf4j.Slf4j;
 
 @RestController
 @RequestMapping("/services")
 @CacheConfig(cacheNames = DateTimeService.DATE_TIME_SERVICE_CACHE)
+
+@ Slf4j
 public class DateTimeService {
 
 	static final String DATE_TIME_SERVICE_CACHE = "datetimeServiceCache";
@@ -34,11 +36,18 @@ public class DateTimeService {
 
 	@CachePut
 	@RequestMapping(value = "/datetime", method = RequestMethod.GET)
-	@HystrixCommand(fallbackMethod = "getCachedDateTime")
+	// @HystrixCommand(fallbackMethod = "getCachedDateTime")
 	public ResponseEntity<String> getDateTime() throws InterruptedException {
 		Thread.sleep(300);
-		final Object dateTime = em.createNativeQuery("SELECT CURRENT_TIMESTAMP").getSingleResult();
-		return ResponseEntity.ok(dateTime.toString());
+		ResponseEntity<String> result = getCachedDateTime();
+		try {
+
+			final Object dateTime = em.createNativeQuery("SELECT CURRENT_TIMESTAMP").getSingleResult();
+			result = ResponseEntity.ok(dateTime.toString());
+		} catch (final Exception e) {
+			log.error("Problem accessing database");
+		}
+		return result;
 	}
 
 	@SuppressWarnings("unchecked")
