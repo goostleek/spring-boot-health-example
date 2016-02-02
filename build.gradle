@@ -45,6 +45,7 @@ dependencies {
 	compile('net.sf.ehcache:ehcache:2.10.1')
 	compile('org.springframework.cloud:spring-cloud-starter-hystrix')
 	compile('org.springframework.cloud:spring-cloud-starter-hystrix-dashboard')
+	compile('io.dropwizard.metrics:metrics-graphite:3.1.2')
 	testCompile('org.springframework.boot:spring-boot-starter-test') 
 }
 
