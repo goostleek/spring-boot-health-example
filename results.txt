@@ -1,0 +1,57 @@
+docker run --rm -t yokogawa/siege -c 1000 -d 1 -t 1m http://19
+
+Hystrix enabled (database up):
+Transactions:                  20072 hits
+Availability:                 100.00 %
+Elapsed time:                  59.15 secs
+Data transferred:               0.50 MB
+Response time:                  2.04 secs
+Transaction rate:             339.34 trans/sec
+Throughput:                     0.01 MB/sec
+Concurrency:                  690.57
+Successful transactions:       20072
+Failed transactions:               0
+Longest transaction:           36.67
+Shortest transaction:           0.00
+
+No Hystirix - custom solution (database up):
+Transactions:                  16428 hits
+Availability:                  99.88 %
+Elapsed time:                  59.97 secs
+Data transferred:               0.41 MB
+Response time:                  2.69 secs
+Transaction rate:             273.94 trans/sec
+Throughput:                     0.01 MB/sec
+Concurrency:                  736.12
+Successful transactions:       16466
+Failed transactions:              19
+Longest transaction:           29.97
+Shortest transaction:           0.36
+
+No Hystirix - custom solution (database down):
+Transactions:                    987 hits
+Availability:                  50.13 %
+Elapsed time:                  59.99 secs
+Data transferred:               0.02 MB
+Response time:                 11.38 secs
+Transaction rate:              16.45 trans/sec
+Throughput:                     0.00 MB/sec
+Concurrency:                  187.27
+Successful transactions:         987
+Failed transactions:             982
+Longest transaction:           30.04
+Shortest transaction:           1.43
+
+Hystrix enabled (database up):
+Transactions:                  18038 hits
+Availability:                 100.00 %
+Elapsed time:                  60.22 secs
+Data transferred:               0.45 MB
+Response time:                  2.18 secs
+Transaction rate:             299.54 trans/sec
+Throughput:                     0.01 MB/sec
+Concurrency:                  652.66
+Successful transactions:       18046
+Failed transactions:               0
+Longest transaction:           30.47
+Shortest transaction:           0.00
