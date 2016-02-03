@@ -7,7 +7,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(classes = HealthExampleApplication.class)
-public class HealthExampleApplicationTests {
+public class HealthExampleIntegrationTests {
 
 	@Test
 	public void contextLoads() {

@@ -1,4 +1,4 @@
-package pl.jcommerce.spring.boot;
+package pl.jcommerce.spring.boot.health;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -22,7 +22,7 @@ public class CustomMetricAspect {
 	private final GaugeService gaugeService;
 	private final CounterService counterService;
 
-	@AfterReturning(pointcut = "execution(* DateTimeService.*(..))")
+	@AfterReturning(pointcut = "execution(* *.DateTimeService.*(..))")
 	public void updateMetric() {
 		final String lastExecutedMetric = "lastExecuted" + getMetricName();
 		gaugeService.submit(lastExecutedMetric, System.currentTimeMillis());

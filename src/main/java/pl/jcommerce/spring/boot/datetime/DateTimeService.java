@@ -1,4 +1,4 @@
-package pl.jcommerce.spring.boot;
+package pl.jcommerce.spring.boot.datetime;
 
 import javax.persistence.EntityManager;
 
@@ -45,5 +45,6 @@ public class DateTimeService {
 	public ResponseEntity<String> getCachedDateTime() {
 		return datetimeCache.get(SimpleKey.EMPTY, ResponseEntity.class);
 	}
+
 
 }

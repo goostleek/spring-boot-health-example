@@ -38,7 +38,8 @@ dependencies {
 	compile('org.springframework.boot:spring-boot-starter-aop')
 	compile('org.springframework.boot:spring-boot-starter-remote-shell')
 	compile('org.springframework.boot:spring-boot-starter-security')
-	compile('org.springframework.boot:spring-boot-devtools')
+	/* disabled due to Hystrix class loading issues */
+	//compile('org.springframework.boot:spring-boot-devtools')
 	compile('com.squareup.retrofit2:retrofit:2.0.0-beta3')
 	compile('org.projectlombok:lombok:1.16.6')
 	compile('org.postgresql:postgresql:9.4.1207.jre7')

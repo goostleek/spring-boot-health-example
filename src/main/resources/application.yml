@@ -7,7 +7,9 @@ security:
 
 spring:
   output.ansi.enabled: ALWAYS
-  jpa.database-platform: org.hibernate.dialect.PostgreSQL9Dialect
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQL9Dialect
+    hibernate.ddl-auto: update
   datasource:
     url: jdbc:postgresql://${docker.host}/postgres
     username: postgres

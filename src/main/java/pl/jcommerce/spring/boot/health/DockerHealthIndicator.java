@@ -1,4 +1,4 @@
-package pl.jcommerce.spring.boot;
+package pl.jcommerce.spring.boot.health;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
